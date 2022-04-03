@@ -1,0 +1,39 @@
+{% assign skin = page %}
+{% assign previewImg = site.baseurl | append: '/skins/' | append: skin.skinid  | append: '/'| append: skin.preview%}
+{% if skin.absoluteUrls == false %}
+{% assign skin_url = site.baseurl | append: '/skins/' | append: skin.skinid  | append: '/'| append: skin.skin%}
+{% assign hkmp_url = site.baseurl | append: '/skins/' | append: skin.skinid  | append: '/'| append: skin.hkmp%}
+{% elsif skin.absoluteUrls == true %}
+{% assign skin_url = skin.skin%}
+{% assign hkmp_url = skin.hkmp%}
+{% endif %} 
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <h1>{{ skin.name }} by {{ skin.author }}</h1>
+        <img class="previewImg" src="{{previewImg}}" alt="{{ skin.name }} preview">
+        <p>{{ content | markdownify }}</p>
+
+        <a href="{{ skin_url | escape }}">
+        Download for Custom Knight
+        </a> <br>
+        <a href="{{ hkmp_url | escape}}">
+        Download for HKMP
+        </a>
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
