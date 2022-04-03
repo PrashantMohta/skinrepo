@@ -1,3 +1,3 @@
-- install [jeykll](https://jekyllrb.com/docs/)
+- install [jekyll](https://jekyllrb.com/docs/)
 - run `bundle exec jekyll serve` in the terminal
 - dev server should be up
